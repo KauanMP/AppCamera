@@ -1,0 +1,7 @@
+{
+  "name": "camApp040B",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

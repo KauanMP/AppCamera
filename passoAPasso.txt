@@ -1,0 +1,16 @@
+1 - Instalar o capacitor camera (Build Your First App)
+npm install @capacitor/camera @capacitor/preferences @capacitor/filesystem
+
+2 - Instalar o PWA
+npm install @ionic/pwa-elements
+
+3 - importar a propriedade do PWA na main.ts
+
+4 - Transformar o projeto em PWA (Progressive Web Apps)
+ng add @angular/pwa
+
+5 - Dar um build do "www"
+ionic build --prod
+
+6 - Criar a pasta services
+ionic g service services/foto
