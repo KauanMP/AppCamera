@@ -48,7 +48,7 @@ export class FotoService {
     const fotoCapturada = await Camera.getPhoto({
       resultType: CameraResultType.Uri, // dados baseados em arquivos; oferece o melhor desempenho
       source: CameraSource.Camera, // tirar automaticamente uma nova foto com a cÃ¢mera
-      quality: 100,
+      quality: 50, // Deixar em 50 para não gerar um arquivo muito grande em câmeras boas.
     });
 
     const salvarArquivoFoto = await this.salvarFoto(fotoCapturada);

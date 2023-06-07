@@ -7,8 +7,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let photo of fotoService.fotos; index as position">
+        <ion-img [src]="photo.webviewPath" (click)="showActionSheet(photo, position)"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="dark">
+    <ion-fab-button (click)="tirarFoto()">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
