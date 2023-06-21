@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Dados da IA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ tipo === 'descrever' ? 'Descrição da Imagem' : 'Objetos na Imagem' }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="tipo === 'descrever'">
+      {{descricao}} <br>
+      <strong>Confiança: </strong>
+      <ion-badge class="direita">
+        {{confianca}}
+      </ion-badge>
+    </ion-card-content>
+
+    <ion-item *ngFor="let item of tags" lines="full">
+      <ion-label>{{item | titlecase}}</ion-label>
+    </ion-item>
+  </ion-card>
+
+</ion-content>

@@ -139,4 +139,29 @@ export class FotoService {
       };
       reader.readAsDataURL(blob);
     });
+
+    async getBlob(foto: Foto) {
+      // Busca o arquivo no File System
+      const file = await this.readFile(foto);
+      // Converte o arquivo para Blob
+      const response = await fetch(file);
+      // Retorna o Blob
+      return await response.blob();
+    }
+
+    private async readFile(foto: Foto) {
+      // If running on the web...
+      if (!this.platform.is('hybrid')) {
+        // Display the photo by reading into base64 format
+        const readFile = await Filesystem.readFile({
+          path: foto.filepath,
+          directory: Directory.Data,
+        });
+
+        // Web platform only: Load the photo as base64 data
+        foto.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
+      }
+
+      return foto.webviewPath as string;
+    }
 }
